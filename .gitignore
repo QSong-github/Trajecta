@@ -1,0 +1,21 @@
+# Patient data and all derived outputs must never be committed
+*.csv
+*.npy
+*.pth
+*.pt
+*.h5ad
+*.xlsx
+
+# Pipeline working directories (repository root only)
+/before_norm_step/
+/19000/
+/8192_race_fixed/
+/validation/
+/figures/
+
+__pycache__/
+.ipynb_checkpoints/
+
+# Demo outputs
+demo/demo_data/
+demo/demo_output/

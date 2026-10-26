@@ -1,0 +1,36 @@
+# Trajecta: Python dependencies
+#
+# Tested environment: Linux x86_64, Python 3.10, NVIDIA GPU with CUDA 12.x driver.
+# The mamba-ssm and causal-conv1d wheels below are prebuilt for exactly this
+# combination (Python 3.10, PyTorch 2.2, CUDA 12, Linux). Other platforms need a
+# matching wheel or a source build.
+#
+#   conda create -n trajecta python=3.10 -y
+#   conda activate trajecta
+#   pip install -r requirements.txt
+#
+# Versions are pinned to the environment used to produce the results in the paper.
+#
+
+--extra-index-url https://download.pytorch.org/whl/cu121
+
+# ---- Deep learning ----
+torch==2.2.2+cu121
+torch-geometric==2.7.0
+triton==2.2.0
+einops==0.8.2
+ninja==1.13.0
+transformers==4.39.3          # imported by mamba_ssm
+causal-conv1d @ https://github.com/Dao-AILab/causal-conv1d/releases/download/v1.2.0.post2/causal_conv1d-1.2.0.post2+cu122torch2.2cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
+mamba-ssm @ https://github.com/state-spaces/mamba/releases/download/v1.2.0.post1/mamba_ssm-1.2.0.post1+cu122torch2.2cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
+
+# ---- Core scientific stack ----
+numpy==1.26.4
+pandas==2.3.3
+scipy==1.15.3
+scikit-learn==1.7.2
+h5py==3.16.0
+
+# ---- Reading segment labels (.h5ad) ----
+scanpy==1.11.5
+anndata==0.11.4
